@@ -3,14 +3,16 @@
 // Google Analytics Collection APIs Reference:
 // https://developers.google.com/analytics/devguides/collection/analyticsjs/
 
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['app.services'])
 
     // Path: /
-    .controller('HomeCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('HomeCtrl', ['$scope', '$location', '$window', 'queueService', function ($scope, $location, $window, queueService) {
         $scope.$root.title = 'AngularJS SPA Template for Visual Studio';
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
+        this.hashtagInfo = queueService.query({ sourceHashtag: 'statsd' });
+        this.textInfo = "statsd";
     }])
 
     // Path: /about

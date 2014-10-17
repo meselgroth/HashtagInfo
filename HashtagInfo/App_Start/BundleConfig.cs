@@ -20,6 +20,7 @@ namespace App.HashtagInfo
 
             bundles.Add(new ScriptBundle("~/js/app").Include(
                 "~/scripts/vendor/angular-ui-router.js",
+                "~/scripts/vendor/angular-resource.js",
                 "~/scripts/filters.js",
                 "~/scripts/services.js",
                 "~/scripts/directives.js",

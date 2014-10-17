@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 
@@ -21,6 +23,11 @@ namespace AzureAccess
         public void AddToQueue(string hashtag)
         {
             _cloudQueue.AddMessage(new CloudQueueMessage(hashtag));
+        }
+
+        public IEnumerable<string> PeekAll()
+        {
+            return _cloudQueue.PeekMessages(20).Select(m=>m.AsString);
         }
     }
 }

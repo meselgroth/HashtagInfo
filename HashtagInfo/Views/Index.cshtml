@@ -2,4 +2,8 @@
     PageData["title"] = "AngularJS SPA Template for Visual Studio";
 }
 <h2>Welcome!</h2>
-<p>This is just a demo page.</p>
+<p>{{homeCtrl.textInfo}}</p>
+
+<ul>
+    <li ng-repeat="hashtag in homeCtrl.hashtagInfo">{{hashtag.Name}}</li>
+</ul>
